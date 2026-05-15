@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aether Tasks • Masterpiece Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="app" aria-label="Task manager app">
+    <header class="app-header">
+      <p class="eyebrow">Curated Productivity</p>
+      <h1>Aether Tasks</h1>
+      <p class="subtitle">A premium daily planner to focus, finish, and feel in control.</p>
+    </header>
+
+    <form id="task-form" class="task-form">
+      <input id="task-input" type="text" placeholder="Write your next important task..." required />
+      <button type="submit">Add Task</button>
+    </form>
+
+    <section class="controls">
+      <div class="filter-wrap">
+        <label for="filter">Display</label>
+        <select id="filter">
+          <option value="all">All Tasks</option>
+          <option value="active">In Progress</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+      <button id="clear-completed" class="ghost" type="button">Clear Completed</button>
+    </section>
+
+    <ul id="task-list" class="task-list" aria-live="polite"></ul>
+    <footer class="app-footer">
+      <p id="task-count" class="task-count"></p>
+    </footer>
+  </main>
+
+  <script src="soe.js"></script>
+</body>
+</html>

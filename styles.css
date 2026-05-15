@@ -1,0 +1,165 @@
+:root {
+  --bg: #090b1a;
+  --surface: rgba(14, 18, 40, 0.68);
+  --surface-2: rgba(17, 24, 52, 0.82);
+  --border: rgba(255, 255, 255, 0.16);
+  --text: #eef2ff;
+  --muted: #bfc7e8;
+  --accent: #8b5cf6;
+  --accent-2: #22d3ee;
+  --danger: #fda4af;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: grid;
+  place-items: center;
+  font-family: Inter, system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(139, 92, 246, 0.35), transparent 60%),
+    radial-gradient(1000px 500px at 100% 0%, rgba(34, 211, 238, 0.22), transparent 55%),
+    var(--bg);
+  overflow-x: hidden;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+  pointer-events: none;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(50px);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.orb-1 { width: 280px; height: 280px; background: #8b5cf6; left: 8%; top: 18%; }
+.orb-2 { width: 360px; height: 360px; background: #22d3ee; right: 5%; bottom: 8%; }
+
+.app {
+  width: min(860px, 95vw);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 40px 80px rgba(3, 7, 20, 0.6), inset 0 1px 0 rgba(255,255,255,0.14);
+  padding: 1.7rem;
+  position: relative;
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(130deg, rgba(139,92,246,0.8), rgba(34,211,238,0.35), rgba(255,255,255,0.1));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+h1 {
+  margin: 0.2rem 0 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.subtitle { color: var(--muted); margin: 0.5rem 0 1.2rem; max-width: 60ch; }
+
+.task-form { display: grid; grid-template-columns: 1fr auto; gap: 0.7rem; margin-bottom: 1rem; }
+
+input, button, select {
+  font: inherit;
+  border-radius: 14px;
+}
+
+.task-form input,
+select {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.8rem 0.9rem;
+}
+
+.task-form button,
+.controls button {
+  border: 0;
+  color: white;
+  font-weight: 700;
+  padding: 0.78rem 1.05rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(34, 211, 238, 0.25);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.filter-wrap { display: grid; gap: 0.35rem; }
+.filter-wrap label { color: var(--muted); font-size: 0.88rem; }
+
+.ghost {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  box-shadow: none !important;
+}
+
+.task-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.66rem; }
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+  padding: 0.78rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(20, 28, 58, 0.64);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.task-item:hover { transform: translateY(-1px); border-color: rgba(139, 92, 246, 0.5); }
+.task-title { color: #e8ecff; }
+.task-item.completed .task-title { color: #9aa7d8; text-decoration: line-through; }
+
+.delete {
+  color: var(--danger);
+  border: 1px solid rgba(253,164,175,0.65);
+  background: transparent;
+  padding: 0.45rem 0.75rem;
+}
+
+.task-count { margin: 1rem 0 0; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .app { padding: 1.2rem; }
+  .task-form { grid-template-columns: 1fr; }
+}
