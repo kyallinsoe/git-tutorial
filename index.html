@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Task Manager</h1>
+    <form id="task-form" class="task-form">
+      <input id="task-input" type="text" placeholder="Add a task..." required />
+      <button type="submit">Add</button>
+    </form>
+
+    <section class="controls">
+      <label for="filter">Filter:</label>
+      <select id="filter">
+        <option value="all">All</option>
+        <option value="active">Active</option>
+        <option value="completed">Completed</option>
+      </select>
+      <button id="clear-completed" type="button">Clear Completed</button>
+    </section>
+
+    <ul id="task-list" class="task-list" aria-live="polite"></ul>
+    <p id="task-count" class="task-count"></p>
+  </main>
+
+  <script src="soe.js"></script>
+</body>
+</html>
