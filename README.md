@@ -1,6 +1,6 @@
 # Task Manager App
 
-A simple client-side task manager built with plain HTML, CSS, and JavaScript.
+A modern client-side task manager with a glassmorphism card design and gradient background, built with plain HTML, CSS, and JavaScript.
 
 ## How to use
 
@@ -8,7 +8,7 @@ A simple client-side task manager built with plain HTML, CSS, and JavaScript.
    - Quick option from this folder:
      - macOS: `open index.html`
      - Linux: `xdg-open index.html`
-2. In the **Add a task...** field, type a task and click **Add**.
+2. In the **What do you need to do?** field, type a task and click **Add**.
 3. Use the checkbox next to a task to mark it complete/incomplete.
 4. Click **Delete** to remove a task.
 5. Use **Filter** to view **All**, **Active**, or **Completed** tasks.
